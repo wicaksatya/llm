@@ -17,7 +17,6 @@ def parse_line(line):
     return None
 
 def chat(messages, handler):
-    """Send a chat request to the LLM API and handle streaming responses."""
     url = f"{LLM_API_BASE_URL}/chat/completions"
     headers = {
         "Authorization": f"Bearer {LLM_API_KEY}",
@@ -29,6 +28,7 @@ def chat(messages, handler):
         "max_tokens": 400,
         "temperature": 0.5,
         "top_p": 0.9,
+        #"top_k": 0.9,  #top_k parameters cannot be used if you use the Groq API, as it does not support these sampling techniques for controlling output generation.
         "stream": True
     }
 
