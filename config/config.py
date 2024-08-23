@@ -2,8 +2,8 @@ import os
 
 PORT = int(os.environ.get("PORT", 3000))
 
-LLM_API_BASE_URL = os.getenv("LLM_API_BASE_URL", "https://api.groq.com/openai/v1")
-LLM_API_KEY = os.getenv("LLM_API_KEY", "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")
-LLM_CHAT_MODEL = os.getenv("LLM_CHAT_MODEL", "llama-3.1-8b-instant")
+LLM_API_BASE_URL = os.getenv("LLM_API_BASE_URL")
+LLM_API_KEY = os.getenv("LLM_API_KEY")
+LLM_CHAT_MODEL = os.getenv("LLM_CHAT_MODEL")
 LLM_STREAMING = os.getenv("LLM_STREAMING", "yes").lower() != "no"
 
