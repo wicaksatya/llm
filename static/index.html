@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nano Jarvis</title>
+    <title>Nutry Foody</title>
     <style>
         html {
             line-height: 1.5;
@@ -223,8 +223,6 @@
 
             const isTouchDevice = () => 'ontouchstart' in window;
 
-            // On a device with touch support (read: mobile), do not autofocus
-            // since it'll annoyingly trigger the on-screen keyboard
             function focusInput() {
                 if (!isTouchDevice()) {
                     $('prompt').focus();
@@ -235,7 +233,7 @@
                 message('human', question);
                 $('prompt').blur();
                 const url = new URL('/chat', window.location.origin);
-                url.searchParams.append('question', encodeURIComponent(question));
+                url.searchParams.append('inquiry', encodeURIComponent(question)); // Updated query parameter
                 const el = message('loader');
                 el.innerHTML = '<div class="loader"></div>';
                 setTimeout(get, 100);
@@ -279,28 +277,6 @@
             setTimeout(() => {
                 message('assistant', 'Hi, this is Nutry Foody!');
             }, 100);
-
-            const tests = [
-                'Who is the CEO of Google?',
-                'What is a dwarf planet?',
-                'Give an example!',
-                'List all terrestrial planets',
-                'Which is the closest to the Sun?',
-                'Which planet known as the red one?',
-                'When was the solar system formed?',
-                'What materials compose the gas giants?',
-                'What about the ice giants?',
-                'Explain the heliopause',
-                'When did Voyager 2 enter interstellar space?',
-                'How about Voyager 1?'
-            ];
-
-            async function verify() {
-                const question = tests.shift();
-                if (question && question.length > 0) {
-                    await ask(question, () => setTimeout(verify, 300));
-                }
-            }
 
             // Uncomment this line to start the test questions
             // setTimeout(verify, 1000);

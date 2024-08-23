@@ -28,8 +28,8 @@ def chat(messages, handler):
         "model": LLM_CHAT_MODEL,
         "max_tokens": 400,
         "temperature": 0.5,
-        "top_p": 0.9,  
-        "top_k": 30,  
+        "top_p": 0.9,
+        #"top_k": 0.9,  #top_k parameters cannot be used if you use the Groq API, as it does not support these sampling techniques for controlling output generation.
         "stream": True
     }
 

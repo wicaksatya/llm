@@ -36,7 +36,7 @@ def reply(context):
 
     function_call_result = handle_function_call(inquiry)
     if function_call_result:
-        return {"answer": json.dumps(function_call_result), **context}
+        return json.dumps(function_call_result)
 
     messages = [{"role": "system", "content": REPLY_PROMPT}]
     relevant_history = history[-4:]
@@ -46,4 +46,5 @@ def reply(context):
     messages.append({"role": "user", "content": inquiry})
 
     answer = chat(messages, stream)
-    return {"answer": answer, **context}
+    return answer
+
