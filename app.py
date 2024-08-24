@@ -16,13 +16,18 @@ def chat():
     inquiry = request.args.get('inquiry', '')
     print(f"    Human: {inquiry}")
 
-    def stream(part):
-        yield part
+    # Check for duplicate inquiry
+    if history and history[-1]['inquiry'] == inquiry:
+        answer = "Your inquiry is the same as before, please change the inquiry."
+    else:
+        def stream(part):
+            yield part
 
-    context = {"inquiry": inquiry, "history": history, "stream": stream}
-    answer = reply(context)  # directly return the plain answer
-    print(f"Assistant: {answer}")
-    history.append({"inquiry": inquiry, "answer": answer})
+        context = {"inquiry": inquiry, "history": history, "stream": stream}
+        answer = reply(context)  # directly return the plain answer
+        print(f"Assistant: {answer}")
+        history.append({"inquiry": inquiry, "answer": answer})
+    
     return answer  # return the plain text response
 
 @app.route('/shutdown', methods=['GET'])
