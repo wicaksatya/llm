@@ -29,21 +29,27 @@ def handle_function_call(inquiry):
             return {"error": "Goal not recognized. Please clarify your fitness goal."}
     return None
 
+def generate_prompt(user_input):
+    prompt = f"You are a fitness and nutrition assistant. Only answer questions related to fitness, nutrition, diet, and workouts. If a question is not related to these topics, politely decline to answer. User: {user_input}"
+    return prompt
+
 def reply(context):
     inquiry = context["inquiry"]
     history = context["history"]
     stream = context["stream"]
 
     function_call_result = handle_function_call(inquiry)
-    if function_call_result:
+    if function_call_result:    
         return json.dumps(function_call_result)
+    
+    generated_prompt = generate_prompt(inquiry)
 
     messages = [{"role": "system", "content": REPLY_PROMPT}]
     relevant_history = history[-4:]
     for msg in relevant_history:
         messages.append({"role": "user", "content": msg["inquiry"]})
         messages.append({"role": "assistant", "content": msg["answer"]})
-    messages.append({"role": "user", "content": inquiry})
+    messages.append({"role": "user", "content": generated_prompt})
 
     answer = chat(messages, stream)
     return answer
