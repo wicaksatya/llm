@@ -1,5 +1,8 @@
 import os
 
+from dotenv import load_dotenv
+load_dotenv()
+
 PORT = int(os.environ.get("PORT", 3000))
 
 LLM_API_BASE_URL = os.getenv("LLM_API_BASE_URL")
