@@ -16,10 +16,8 @@
 ## Features
 
 - **Personalized Responses**: Takes into account user-specific dietary restrictions and fitness goals.
-- **Interactive Chat Interface**: A responsive chat interface with avatars and seamless conversation flow.
+- **Interactive Chat Interface**: A responsive chat interface and seamless conversation flow.
 - **Real-Time Streaming**: Supports real-time streaming of responses from the LLM API.
-- **Error Handling**: Graceful handling of unexpected issues with user-friendly error messages.
-- **Avatar Support**: Customizable avatars for both user and assistant interactions.
 
 ## Project Structure
 ```
