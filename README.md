@@ -89,6 +89,6 @@ This project uses the LLM API from Groq with the following key settings:
 - **API Key:** Access [Groq console](https://console.groq.com/keys), _**Note:**_ _you have to register first_
 - **Streaming:** Enabled
 
-Refer to llm_utils.py for details on how API requests are structured and handled.
+Refer to `llm_utils.py` for details on how API requests are structured and handled.
 
 
