@@ -51,6 +51,7 @@ your_project/
 
 - **Python**
 - **Flask**: For serving the backend and REST API.
+- **Llama 3.1**: Utilized for advanced natural language processing tasks, enabling the generation of contextually relevant responses.
 - **HTML/CSS/JavaScript**: For the front-end interface.
 - **LLM API (via Groq)**: Large Language Model integration for natural language understanding and response generation.
 
