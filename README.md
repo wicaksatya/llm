@@ -53,9 +53,8 @@ your_project/
 
 - **Python**
 - **Flask**: For serving the backend and REST API.
-- **ONNX**: For face recognition models (if integrated).
 - **HTML/CSS/JavaScript**: For the front-end interface.
-- **LLM API (via OpenRouter)**: Large Language Model integration for natural language understanding and response generation.
+- **LLM API (via Groq)**: Large Language Model integration for natural language understanding and response generation.
 
 ## Installation
 
